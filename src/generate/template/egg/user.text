@@ -2,7 +2,6 @@
 
 module.exports = app => {
   const DataTypes = app.Sequelize;
-  const sequelize = app.model;
   const attributes = {
     id: {
       type: DataTypes.BIGINT,
@@ -64,6 +63,6 @@ module.exports = app => {
     }]
   };
 
-  const UserModel = sequelize.define('userModel', attributes, options);
+  const UserModel = app.model.define('userModel', attributes, options);
   return UserModel;
 };

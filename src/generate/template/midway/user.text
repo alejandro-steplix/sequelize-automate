@@ -4,7 +4,6 @@ import { IDB } from './db';
 
 export default async function setupModel(context: IApplicationContext) {
   const db: IDB = await context.getAsync('DB');
-  const { sequelize } = db;
   const attributes = {
     id: {
       type: DataTypes.BIGINT,
@@ -65,7 +64,7 @@ export default async function setupModel(context: IApplicationContext) {
       ],
     }]
   };
-  return sequelize.define('userModel', attributes, options);
+  return db.sequelize.define('userModel', attributes, options);
 }
 
 providerWrapper([
